@@ -137,7 +137,8 @@ Armazenamento histórico em banco de dados (MongoDB ou FIWARE).
 <div align="center">
   <img src="Captura de Tela 2025-09-04 às 11.29.02.png" width="600" alt="Arquitetura do Projeto">
 </div>
----
+
+
 ## 👨‍💻 Autores
 
 - Paulo Cesar de Govea Junior - (RM:566034)
