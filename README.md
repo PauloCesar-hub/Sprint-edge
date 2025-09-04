@@ -130,7 +130,7 @@ Armazenamento histórico em banco de dados (MongoDB ou FIWARE).
 ---
 ## Links importantes 
 -🔗 [Link do Video Explicativo do Projeto no Youtube]()
--🔗 ![tecnologias]()
+-🔗 ![tecnologias](Captura de Tela 2025-09-04 às 11.28.41.png)
 
 
 ---
