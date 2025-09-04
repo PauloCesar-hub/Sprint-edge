@@ -134,7 +134,9 @@ Armazenamento histórico em banco de dados (MongoDB ou FIWARE).
   <img src="Captura de Tela 2025-09-04 às 11.28.41.png" width="600" alt="Arquitetura do Projeto">
 </div>
 
-
+<div align="center">
+  <img src="Captura de Tela 2025-09-04 às 11.28.41.png" width="600" alt="Arquitetura do Projeto">
+</div>
 ---
 ## 👨‍💻 Autores
 
