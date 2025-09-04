@@ -1,0 +1,431 @@
+[
+    {
+        "id": "48b832ad4dead599",
+        "type": "tab",
+        "label": "Monitor de Passes",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f94399e4e018852a",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "02a0df45f2248c0b",
+        "type": "ui_tab",
+        "z": "48b832ad4dead599",
+        "name": "Painel",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "68bcbfb370956c4d",
+        "type": "ui_group",
+        "z": "48b832ad4dead599",
+        "name": "Estatísticas",
+        "tab": "02a0df45f2248c0b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a113c7aeb56b2cab",
+        "type": "ui_dropdown",
+        "z": "48b832ad4dead599",
+        "name": "Jogador",
+        "label": "Jogador",
+        "tooltip": "",
+        "place": "Escolha",
+        "group": "68bcbfb370956c4d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "options": [
+            {
+                "label": "Andressa Alves",
+                "value": "Andressa Alves",
+                "type": "str"
+            },
+            {
+                "label": "Dayana Rodríguez",
+                "value": "Dayana Rodríguez",
+                "type": "str"
+            },
+            {
+                "label": "Mariza",
+                "value": "Mariza",
+                "type": "str"
+            },
+            {
+                "label": "Thaís Regina",
+                "value": "Thaís Regina",
+                "type": "str"
+            },
+            {
+                "label": "Letícia Teles",
+                "value": "Letícia Teles",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "player",
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "ca4e6527ebd06b9a"
+            ]
+        ]
+    },
+    {
+        "id": "ca4e6527ebd06b9a",
+        "type": "change",
+        "z": "48b832ad4dead599",
+        "name": "Salvar jogador",
+        "rules": [
+            {
+                "t": "set",
+                "p": "selectedPlayer",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d5e399244eb20ddf",
+        "type": "ui_button",
+        "z": "48b832ad4dead599",
+        "name": "Registrar Passe",
+        "group": "68bcbfb370956c4d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Registrar Passe",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "arrow-right",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "pass",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "d29b06beb66fe924"
+            ]
+        ]
+    },
+    {
+        "id": "d29b06beb66fe924",
+        "type": "function",
+        "z": "48b832ad4dead599",
+        "name": "RegistrarPasse",
+        "func": "// RegistrarPasse - saída múltipla\nlet now = Date.now();\nlet last = flow.get('lastPassTime') || null;\nlet passCount = flow.get('passCount') || 0;\npassCount += 1;\nflow.set('passCount', passCount);\nflow.set('lastPassTime', now);\n\nlet intervals = flow.get('intervals') || [];\nlet intervalSec = null;\nif (last !== null) {\n    intervalSec = (now - last) / 1000.0;\n    intervals.push(intervalSec);\n    if (intervals.length > 100) { intervals.shift(); }\n    flow.set('intervals', intervals);\n}\n\nlet avgInterval = 0;\nif (intervals.length > 0) {\n    let sum = intervals.reduce((a,b) => a+b, 0);\n    avgInterval = sum / intervals.length;\n}\n\nlet counts = flow.get('playerCounts') || {};\nlet selectedPlayer = flow.get('selectedPlayer') || 'Desconhecido';\ncounts[selectedPlayer] = (counts[selectedPlayer] || 0) + 1;\nflow.set('playerCounts', counts);\n\n// determinar quem mais passa\nlet topPlayer = selectedPlayer;\nlet topCount = counts[selectedPlayer];\nfor (let p in counts) {\n    if (counts[p] > topCount) { topPlayer = p; topCount = counts[p]; }\n}\nlet status = 'Aguardando 2º passe';\nif (intervalSec !== null) {\n    if (intervalSec <= 5) {\n        status = '🟢 Intenso';\n    } else if (intervalSec <= 15) {\n        status = '🟡 Moderado';\n    } else {\n        status = '🔴 Jogo Lento';\n    }\n}\n\n// atualizar dados do gráfico (intervalos)\nlet chartLabels = flow.get('chartLabels') || [];\nlet chartData = flow.get('chartData') || [];\nlet label = new Date(now).toLocaleTimeString();\nchartLabels.push(label);\nchartData.push(intervalSec === null ? 0 : Math.round(intervalSec * 100)/100);\nif (chartLabels.length > 20) { chartLabels.shift(); chartData.shift(); }\nflow.set('chartLabels', chartLabels);\nflow.set('chartData', chartData);\n\n// preparar mensagens (5 saídas)\nlet msgTotal = { payload: passCount };\nlet msgAvg = { payload: (avgInterval === 0 ? '—' : Number(avgInterval.toFixed(2))) };\nlet msgTop = { payload: (topPlayer + ' (' + topCount + ')') };\nlet msgStatus = { payload: status };\nlet msgChart = { payload: [ { series: ['Intervalo (s)'], data: [ chartData.map(x=>x) ], labels: chartLabels } ] };\n\nreturn [msgTotal, msgAvg, msgTop, msgStatus, msgChart];\n",
+        "outputs": 5,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "b75fab0dbd17411f"
+            ],
+            [
+                "c405a79fc2530587"
+            ],
+            [
+                "3a4cee9424877406"
+            ],
+            [
+                "bc20c45891bb7d7c"
+            ],
+            [
+                "73e8aa303d9cde1e"
+            ]
+        ]
+    },
+    {
+        "id": "b75fab0dbd17411f",
+        "type": "ui_text",
+        "z": "48b832ad4dead599",
+        "group": "68bcbfb370956c4d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Total de Passes",
+        "label": "Total de Passes",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "c405a79fc2530587",
+        "type": "ui_text",
+        "z": "48b832ad4dead599",
+        "group": "68bcbfb370956c4d",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Tempo médio (s)",
+        "label": "Tempo médio entre passes (s)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3a4cee9424877406",
+        "type": "ui_text",
+        "z": "48b832ad4dead599",
+        "group": "68bcbfb370956c4d",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "Quem mais passa",
+        "label": "Quem mais passa",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "bc20c45891bb7d7c",
+        "type": "ui_text",
+        "z": "48b832ad4dead599",
+        "group": "68bcbfb370956c4d",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "Status do jogo",
+        "label": "Status do jogo",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "73e8aa303d9cde1e",
+        "type": "ui_chart",
+        "z": "48b832ad4dead599",
+        "name": "Intervalos",
+        "group": "68bcbfb370956c4d",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "label": "Intervalo entre passes (s)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c"
+        ],
+        "outputs": 1,
+        "x": 700,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a319644d10c3d8d9",
+        "type": "ui_button",
+        "z": "48b832ad4dead599",
+        "name": "Reset",
+        "group": "68bcbfb370956c4d",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset",
+        "tooltip": "Limpa todas as estatísticas",
+        "color": "",
+        "bgcolor": "",
+        "icon": "repeat",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "reset",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "f8d959b7e1c121d6"
+            ]
+        ]
+    },
+    {
+        "id": "f8d959b7e1c121d6",
+        "type": "function",
+        "z": "48b832ad4dead599",
+        "name": "ResetEstatisticas",
+        "func": "// Reset - limpa variáveis de fluxo e atualiza UI\nflow.set('passCount', 0);\nflow.set('lastPassTime', null);\nflow.set('intervals', []);\nflow.set('playerCounts', {});\nflow.set('chartLabels', []);\nflow.set('chartData', []);\n\nlet msgTotal = { payload: 0 };\nlet msgAvg = { payload: '—' };\nlet msgTop = { payload: '—' };\nlet msgStatus = { payload: 'Resetado' };\nlet msgChart = { payload: [ { series: ['Intervalo (s)'], data: [ [] ], labels: [] } ] };\n\nreturn [msgTotal, msgAvg, msgTop, msgStatus, msgChart];\n",
+        "outputs": 5,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "b75fab0dbd17411f"
+            ],
+            [
+                "c405a79fc2530587"
+            ],
+            [
+                "3a4cee9424877406"
+            ],
+            [
+                "bc20c45891bb7d7c"
+            ],
+            [
+                "73e8aa303d9cde1e"
+            ]
+        ]
+    },
+    {
+        "id": "4923e187932547d5",
+        "type": "comment",
+        "z": "48b832ad4dead599",
+        "name": "Use o dropdown para selecionar jogador antes de registrar um passe",
+        "info": "",
+        "x": 360,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "4858ba6e57de170d",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
