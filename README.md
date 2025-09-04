@@ -1,45 +1,139 @@
-# Projeto: Análise de Passes no Futebol com Node-RED
+## README.md — Projeto IoT: Monitoramento de Passes e Intensidade do Jogo
+📌 Visão Geral
 
-## Descrição
+Este projeto implementa um sistema IoT para monitoramento de passes em uma partida e análise da intensidade do jogo em tempo real.
+Utilizando Node-RED e sensores simulados (ou físicos, se desejado), o sistema registra a quantidade de passes, calcula o tempo médio entre passes e classifica o ritmo do jogo em três níveis:
 
-Este projeto utiliza o Node-RED para monitorar e analisar passes durante uma partida de futebol. Ele calcula o tempo médio entre passes, identifica o jogador que mais passa a bola e determina o status do jogo com base no intervalo entre os passes.
+🟢 Intenso → tempo médio ≤ 5s
 
-## Funcionalidades
+🟡 Moderado → tempo médio > 5s e ≤ 15s
 
-- **Contagem de Passes**: Conta o número total de passes realizados.
-- **Tempo Médio entre Passes**: Calcula o tempo médio entre os passes.
-- **Jogador com Mais Passes**: Identifica o jogador que mais realizou passes.
-- **Status do Jogo**: Determina o status do jogo com base no intervalo entre os passes:
-  - 🟢 **Intenso**: Intervalo entre passes ≤ 5 segundos.
-  - 🟡 **Moderado**: Intervalo entre passes > 5 e ≤ 15 segundos.
-  - 🔴 **Lento**: Intervalo entre passes > 15 segundos.
-- **Gráficos de Intervalos**: Exibe gráficos com os intervalos entre os passes ao longo do tempo.:contentReference[oaicite:30]{index=30}
+🔴 Lento → tempo médio > 15s
 
-## Requisitos
+🔹 Arquitetura IoT
 
-- [Node.js](https://nodejs.org/) (versão recomendada: 16.x ou superior)
-- [Node-RED](https://nodered.org/) instalado e em funcionamento
-- [Node-RED Dashboard](https://flows.nodered.org/node/node-red-dashboard) instalado no Node-RED
+A solução é composta por três camadas principais:
 
-## Instalação
+1. Dispositivos IoT
 
-1. Clone ou baixe este repositório.
-2. Abra o Node-RED em seu navegador (geralmente acessível em `http://localhost:1880`).
-3. Clique no menu (☰) no canto superior direito e selecione **Importar**.
-4. Escolha o arquivo `fluxo-node-red.json` e clique em **Importar**.
-5. Clique em **Deploy** para aplicar as alterações.
-6. Acesse o dashboard em `http://localhost:1880/ui` para visualizar os dados e gráficos.:contentReference[oaicite:43]{index=43}
+Sensores simulados → podem ser representados no Node-RED via botões ou injeções de eventos.
 
-## Personalização
+Sensores físicos (opcional) → RFID, infravermelho (IR) ou LDR para capturar movimentações reais.
 
-- **Jogadores**: Para alterar os nomes dos jogadores, edite o nó **Inject** que simula a entrada de dados e modifique o campo `payload` para o nome desejado.
-- **Intervalo entre Passes**: O tempo entre os passes é simulado pelo nó **Inject**. Ajuste o valor do campo `payload` para simular diferentes intervalos.
-- **Gráficos**: Para personalizar os gráficos, edite o nó **Chart** e ajuste as configurações conforme necessário.:contentReference[oaicite:50]{index=50}
+Microcontrolador (opcional) → ESP32 ou Arduino para coletar dados e transmiti-los.
 
-## Contribuições
+2. Plataforma de Gerenciamento
 
-Contribuições são bem-vindas! Se você tiver sugestões ou melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+Node-RED → plataforma principal usada para:
 
-## Licença
+Receber os dados dos sensores.
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Processar estatísticas dos passes.
+
+Classificar o ritmo do jogo.
+
+Publicar os resultados no dashboard.
+
+HiveMQ (opcional) → pode ser usado para comunicação MQTT.
+
+FIWARE (opcional) → alternativa para gerenciamento avançado e integração com Big Data.
+
+3. Interface de Visualização
+
+Node-RED Dashboard exibe:
+
+Número de passes registrados.
+
+Tempo médio entre passes.
+
+Status do jogo: Intenso, Moderado ou Lento.
+
+Gráficos históricos de desempenho.
+
+## 📊 Fluxo da Arquitetura
+graph TD
+    A[Sensor/Simulação] -->|Evento de Passe| B[Node-RED]
+    B --> C[Processamento dos Dados]
+    C --> D[Classificação do Ritmo]
+    D --> E[Dashboard Node-RED]
+
+## ⚙️ Instalação e Configuração
+1. Pré-requisitos
+
+Node.js ≥ 18
+
+npm ≥ 9
+
+Node-RED ≥ 3.1
+
+Node-RED Dashboard ≥ 3.6.6
+
+2. Instalar o Node-RED
+sudo npm install -g --unsafe-perm node-red
+
+3. Iniciar o Node-RED
+node-red
+
+
+Após iniciar, acesse no navegador:
+🔗 http://localhost:1880
+
+4. Instalar o Node-RED Dashboard
+cd ~/.node-red
+npm install node-red-dashboard
+
+
+Reinicie o Node-RED após a instalação.
+
+5. Importar o Fluxo
+
+Abra o Node-RED no navegador.
+
+Clique no menu no canto superior direito → Importar.
+
+Cole o conteúdo do arquivo fluxo-node-red.json.
+
+Clique em Importar para carregar os nós.
+
+## 🖥️ Como Usar
+
+Clique no botão Simular Passe para registrar um passe.
+
+O sistema irá:
+
+Incrementar o contador de passes.
+
+Calcular o tempo médio entre passes.
+
+Atualizar automaticamente o status do jogo.
+
+Veja tudo no dashboard:
+🔗 http://localhost:1880/ui
+
+📂 Estrutura do Projeto
+Projeto-Passes-Futebol/
+│── fluxo-node-red.json   # Fluxo completo do Node-RED
+│── README.md             # Documentação do projeto
+
+## 🚦 Status do Jogo
+Tempo Médio	Status	Cor
+≤ 5s	Intenso	🟢
+5s < tempo ≤ 15s	Moderado	🟡
+> 15s	Lento	🔴
+## 💡 Futuras Melhorias
+
+Integração com sensores físicos via Arduino/ESP32.
+
+Envio de alertas automáticos via Telegram ou WhatsApp.
+
+Armazenamento histórico em banco de dados (MongoDB ou FIWARE).
+
+## 👨‍💻 Autores
+
+- Paulo Cesar de Govea Junior - (RM:566034)
+- Guilherme Vilela Perez - (RM:564422)
+- Gustavo Panham Dourado - (RM:563904)
+- Christian Schunck de Almeida - (RM:563850)
+- Thomas Jeferson Santana Wang - (RM565104)
+  
+Projeto desenvolvido para monitorar passes e intensidade de jogo usando IoT + Node-RED.
