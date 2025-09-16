@@ -130,6 +130,7 @@ Armazenamento histórico em banco de dados (MongoDB ou FIWARE).
 ---
 ## Links importantes 
 -🔗 [Link do Video Explicativo do Projeto no Youtube]()
+-🔗 [Link da aplicação em teste no wokwi(https://wokwi.com/projects/442204837669686273)
 <div align="center">
   <img src="Captura de Tela 2025-09-04 às 11.28.41.png" width="600" alt="Arquitetura do Projeto">
 </div>
