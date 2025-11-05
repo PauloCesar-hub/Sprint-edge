@@ -1,427 +1,325 @@
 [
     {
-        "id": "48b832ad4dead599",
+        "id": "e0fb2a1b4fe214e2",
         "type": "tab",
-        "label": "Monitor de Passes",
+        "label": "Fluxo 1",
         "disabled": false,
-        "info": ""
+        "info": "",
+        "env": []
     },
     {
-        "id": "f94399e4e018852a",
-        "type": "ui_base",
-        "theme": {
-            "name": "theme-light",
-            "lightTheme": {
-                "default": "#0094CE",
-                "baseColor": "#0094CE",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
-            },
-            "darkTheme": {
-                "default": "#097479",
-                "baseColor": "#097479",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
-            },
-            "customTheme": {
-                "name": "Untitled Theme 1",
-                "default": "#4B7930",
-                "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-            },
-            "themeState": {
-                "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
-                    "edited": false
-                },
-                "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
-                    "edited": false
-                },
-                "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
-                    "value": "#111111",
-                    "edited": false
-                },
-                "widget-backgroundColor": {
-                    "value": "#0094ce",
-                    "edited": false
-                },
-                "widget-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-                }
-            },
-            "angularTheme": {
-                "primary": "indigo",
-                "accents": "blue",
-                "warn": "red",
-                "background": "grey",
-                "palette": "light"
-            }
-        },
-        "site": {
-            "name": "Node-RED Dashboard",
-            "hideToolbar": "false",
-            "allowSwipe": "false",
-            "lockMenu": "false",
-            "allowTempTheme": "true",
-            "dateFormat": "DD/MM/YYYY",
-            "sizes": {
-                "sx": 48,
-                "sy": 48,
-                "gx": 6,
-                "gy": 6,
-                "cx": 6,
-                "cy": 6,
-                "px": 0,
-                "py": 0
-            }
-        }
-    },
-    {
-        "id": "02a0df45f2248c0b",
-        "type": "ui_tab",
-        "z": "48b832ad4dead599",
-        "name": "Painel",
-        "icon": "dashboard",
-        "order": 1
-    },
-    {
-        "id": "68bcbfb370956c4d",
-        "type": "ui_group",
-        "z": "48b832ad4dead599",
-        "name": "Estatísticas",
-        "tab": "02a0df45f2248c0b",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "a113c7aeb56b2cab",
-        "type": "ui_dropdown",
-        "z": "48b832ad4dead599",
-        "name": "Jogador",
-        "label": "Jogador",
-        "tooltip": "",
-        "place": "Escolha",
-        "group": "68bcbfb370956c4d",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "options": [
-            {
-                "label": "Andressa Alves",
-                "value": "Andressa Alves",
-                "type": "str"
-            },
-            {
-                "label": "Dayana Rodríguez",
-                "value": "Dayana Rodríguez",
-                "type": "str"
-            },
-            {
-                "label": "Mariza",
-                "value": "Mariza",
-                "type": "str"
-            },
-            {
-                "label": "Thaís Regina",
-                "value": "Thaís Regina",
-                "type": "str"
-            },
-            {
-                "label": "Letícia Teles",
-                "value": "Letícia Teles",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "player",
-        "x": 160,
-        "y": 140,
+        "id": "72f6932a2e04d991",
+        "type": "mqtt in",
+        "z": "e0fb2a1b4fe214e2",
+        "name": "Recebe Dados ESP32",
+        "topic": "esp32/passes/data",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "mqtt_broker_hivemq",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1140,
+        "y": 280,
         "wires": [
             [
-                "ca4e6527ebd06b9a"
+                "c2feb7b856f85cc0",
+                "4704f49d47dd8e68"
             ]
         ]
     },
     {
-        "id": "ca4e6527ebd06b9a",
-        "type": "change",
-        "z": "48b832ad4dead599",
-        "name": "Salvar jogador",
-        "rules": [
-            {
-                "t": "set",
-                "p": "selectedPlayer",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
+        "id": "c2feb7b856f85cc0",
+        "type": "json",
+        "z": "e0fb2a1b4fe214e2",
+        "name": "JSON Parse",
+        "property": "payload",
         "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 400,
-        "y": 140,
+        "pretty": false,
+        "x": 1330,
+        "y": 280,
         "wires": [
-            []
+            [
+                "629b717492860f39",
+                "ece3240f5acecbc5",
+                "cae5b0fe49c85853",
+                "185b3bb0337aec19"
+            ]
         ]
     },
     {
-        "id": "d5e399244eb20ddf",
-        "type": "ui_button",
-        "z": "48b832ad4dead599",
-        "name": "Registrar Passe",
-        "group": "68bcbfb370956c4d",
+        "id": "629b717492860f39",
+        "type": "ui_text",
+        "z": "e0fb2a1b4fe214e2",
+        "group": "b481b188a48757d5",
         "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Registrar Passe",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "arrow-right",
-        "payload": "1",
-        "payloadType": "num",
-        "topic": "pass",
-        "x": 160,
-        "y": 80,
-        "wires": [
-            [
-                "d29b06beb66fe924"
-            ]
-        ]
-    },
-    {
-        "id": "d29b06beb66fe924",
-        "type": "function",
-        "z": "48b832ad4dead599",
-        "name": "RegistrarPasse",
-        "func": "// RegistrarPasse - saída múltipla\nlet now = Date.now();\nlet last = flow.get('lastPassTime') || null;\nlet passCount = flow.get('passCount') || 0;\npassCount += 1;\nflow.set('passCount', passCount);\nflow.set('lastPassTime', now);\n\nlet intervals = flow.get('intervals') || [];\nlet intervalSec = null;\nif (last !== null) {\n    intervalSec = (now - last) / 1000.0;\n    intervals.push(intervalSec);\n    if (intervals.length > 100) { intervals.shift(); }\n    flow.set('intervals', intervals);\n}\n\nlet avgInterval = 0;\nif (intervals.length > 0) {\n    let sum = intervals.reduce((a,b) => a+b, 0);\n    avgInterval = sum / intervals.length;\n}\n\nlet counts = flow.get('playerCounts') || {};\nlet selectedPlayer = flow.get('selectedPlayer') || 'Desconhecido';\ncounts[selectedPlayer] = (counts[selectedPlayer] || 0) + 1;\nflow.set('playerCounts', counts);\n\n// determinar quem mais passa\nlet topPlayer = selectedPlayer;\nlet topCount = counts[selectedPlayer];\nfor (let p in counts) {\n    if (counts[p] > topCount) { topPlayer = p; topCount = counts[p]; }\n}\nlet status = 'Aguardando 2º passe';\nif (intervalSec !== null) {\n    if (intervalSec <= 5) {\n        status = '🟢 Intenso';\n    } else if (intervalSec <= 15) {\n        status = '🟡 Moderado';\n    } else {\n        status = '🔴 Jogo Lento';\n    }\n}\n\n// atualizar dados do gráfico (intervalos)\nlet chartLabels = flow.get('chartLabels') || [];\nlet chartData = flow.get('chartData') || [];\nlet label = new Date(now).toLocaleTimeString();\nchartLabels.push(label);\nchartData.push(intervalSec === null ? 0 : Math.round(intervalSec * 100)/100);\nif (chartLabels.length > 20) { chartLabels.shift(); chartData.shift(); }\nflow.set('chartLabels', chartLabels);\nflow.set('chartData', chartData);\n\n// preparar mensagens (5 saídas)\nlet msgTotal = { payload: passCount };\nlet msgAvg = { payload: (avgInterval === 0 ? '—' : Number(avgInterval.toFixed(2))) };\nlet msgTop = { payload: (topPlayer + ' (' + topCount + ')') };\nlet msgStatus = { payload: status };\nlet msgChart = { payload: [ { series: ['Intervalo (s)'], data: [ chartData.map(x=>x) ], labels: chartLabels } ] };\n\nreturn [msgTotal, msgAvg, msgTop, msgStatus, msgChart];\n",
-        "outputs": 5,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 80,
-        "wires": [
-            [
-                "b75fab0dbd17411f"
-            ],
-            [
-                "c405a79fc2530587"
-            ],
-            [
-                "3a4cee9424877406"
-            ],
-            [
-                "bc20c45891bb7d7c"
-            ],
-            [
-                "73e8aa303d9cde1e"
-            ]
-        ]
-    },
-    {
-        "id": "b75fab0dbd17411f",
-        "type": "ui_text",
-        "z": "48b832ad4dead599",
-        "group": "68bcbfb370956c4d",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "Total de Passes",
-        "label": "Total de Passes",
-        "format": "{{msg.payload}}",
+        "width": "6",
+        "height": "1",
+        "name": "Jogadora Atual",
+        "label": "🏃 Jogadora",
+        "format": "{{msg.payload.player}}",
         "layout": "row-spread",
-        "x": 700,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "c405a79fc2530587",
-        "type": "ui_text",
-        "z": "48b832ad4dead599",
-        "group": "68bcbfb370956c4d",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "Tempo médio (s)",
-        "label": "Tempo médio entre passes (s)",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 700,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "3a4cee9424877406",
-        "type": "ui_text",
-        "z": "48b832ad4dead599",
-        "group": "68bcbfb370956c4d",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "Quem mais passa",
-        "label": "Quem mais passa",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 700,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "bc20c45891bb7d7c",
-        "type": "ui_text",
-        "z": "48b832ad4dead599",
-        "group": "68bcbfb370956c4d",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "Status do jogo",
-        "label": "Status do jogo",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 700,
+        "x": 1580,
         "y": 240,
         "wires": []
     },
     {
-        "id": "73e8aa303d9cde1e",
+        "id": "ece3240f5acecbc5",
+        "type": "ui_gauge",
+        "z": "e0fb2a1b4fe214e2",
+        "name": "Total de Passes",
+        "group": "b481b188a48757d5",
+        "order": 2,
+        "width": "6",
+        "height": "3",
+        "gtype": "donut",
+        "title": "⚽ Passes Totais",
+        "label": "passes",
+        "format": "{{msg.payload.passes}}",
+        "min": 0,
+        "max": "50",
+        "x": 1590,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "cae5b0fe49c85853",
         "type": "ui_chart",
-        "z": "48b832ad4dead599",
-        "name": "Intervalos",
-        "group": "68bcbfb370956c4d",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "label": "Intervalo entre passes (s)",
+        "z": "e0fb2a1b4fe214e2",
+        "name": "Intervalo entre Passes",
+        "group": "b481b188a48757d5",
+        "order": 3,
+        "width": "6",
+        "height": "4",
+        "label": "📈 Intervalo (s)",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
-        "dot": true,
+        "dot": false,
         "ymin": "0",
-        "ymax": "",
+        "ymax": "20",
         "removeOlder": 1,
-        "removeOlderPoints": "",
+        "removeOlderPoints": "30",
         "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
         "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c"
+            "#00bcd4"
         ],
         "outputs": 1,
-        "x": 700,
-        "y": 320,
+        "x": 1600,
+        "y": 360,
         "wires": [
             []
         ]
     },
     {
-        "id": "a319644d10c3d8d9",
-        "type": "ui_button",
-        "z": "48b832ad4dead599",
-        "name": "Reset",
-        "group": "68bcbfb370956c4d",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Reset",
-        "tooltip": "Limpa todas as estatísticas",
-        "color": "",
-        "bgcolor": "",
-        "icon": "repeat",
-        "payload": "reset",
-        "payloadType": "str",
-        "topic": "reset",
-        "x": 180,
-        "y": 200,
-        "wires": [
-            [
-                "f8d959b7e1c121d6"
-            ]
-        ]
-    },
-    {
-        "id": "f8d959b7e1c121d6",
-        "type": "function",
-        "z": "48b832ad4dead599",
-        "name": "ResetEstatisticas",
-        "func": "// Reset - limpa variáveis de fluxo e atualiza UI\nflow.set('passCount', 0);\nflow.set('lastPassTime', null);\nflow.set('intervals', []);\nflow.set('playerCounts', {});\nflow.set('chartLabels', []);\nflow.set('chartData', []);\n\nlet msgTotal = { payload: 0 };\nlet msgAvg = { payload: '—' };\nlet msgTop = { payload: '—' };\nlet msgStatus = { payload: 'Resetado' };\nlet msgChart = { payload: [ { series: ['Intervalo (s)'], data: [ [] ], labels: [] } ] };\n\nreturn [msgTotal, msgAvg, msgTop, msgStatus, msgChart];\n",
-        "outputs": 5,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 420,
-        "y": 200,
-        "wires": [
-            [
-                "b75fab0dbd17411f"
-            ],
-            [
-                "c405a79fc2530587"
-            ],
-            [
-                "3a4cee9424877406"
-            ],
-            [
-                "bc20c45891bb7d7c"
-            ],
-            [
-                "73e8aa303d9cde1e"
-            ]
-        ]
-    },
-    {
-        "id": "4923e187932547d5",
-        "type": "comment",
-        "z": "48b832ad4dead599",
-        "name": "Use o dropdown para selecionar jogador antes de registrar um passe",
-        "info": "",
-        "x": 360,
-        "y": 20,
+        "id": "185b3bb0337aec19",
+        "type": "ui_text",
+        "z": "e0fb2a1b4fe214e2",
+        "group": "b481b188a48757d5",
+        "order": 4,
+        "width": "6",
+        "height": "1",
+        "name": "Velocidade do Passe",
+        "label": "⏱️ Status",
+        "format": "{{msg.payload.status}}",
+        "layout": "row-spread",
+        "x": 1600,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "4858ba6e57de170d",
+        "id": "239958b8288240c6",
+        "type": "ui_button",
+        "z": "e0fb2a1b4fe214e2",
+        "name": "Botão Resetar",
+        "group": "b481b188a48757d5",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "🔁 Resetar",
+        "tooltip": "Resetar contagem",
+        "color": "",
+        "bgcolor": "#f44336",
+        "className": "",
+        "topic": "",
+        "x": 1150,
+        "y": 460,
+        "wires": [
+            [
+                "0e6dbece1ded58fe"
+            ]
+        ]
+    },
+    {
+        "id": "de07a881721bef04",
+        "type": "ui_button",
+        "z": "e0fb2a1b4fe214e2",
+        "name": "Botão Próximo",
+        "group": "b481b188a48757d5",
+        "order": 6,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "➡️ Próximo",
+        "tooltip": "Próximo jogador",
+        "color": "",
+        "bgcolor": "#4caf50",
+        "className": "",
+        "topic": "",
+        "x": 1150,
+        "y": 520,
+        "wires": [
+            [
+                "e2eaf3ce43366893"
+            ]
+        ]
+    },
+    {
+        "id": "0e6dbece1ded58fe",
+        "type": "mqtt out",
+        "z": "e0fb2a1b4fe214e2",
+        "name": "Enviar Reset",
+        "topic": "esp32/passes/cmd",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "mqtt_broker_hivemq",
+        "x": 1390,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e2eaf3ce43366893",
+        "type": "mqtt out",
+        "z": "e0fb2a1b4fe214e2",
+        "name": "Enviar Next",
+        "topic": "esp32/passes/cmd",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "mqtt_broker_hivemq",
+        "x": 1390,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "ddbf30fb9e57e545",
+        "type": "inject",
+        "z": "e0fb2a1b4fe214e2",
+        "name": "reset",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "x": 1150,
+        "y": 580,
+        "wires": [
+            [
+                "0e6dbece1ded58fe"
+            ]
+        ]
+    },
+    {
+        "id": "0ac2b3f2d9d33fbb",
+        "type": "inject",
+        "z": "e0fb2a1b4fe214e2",
+        "name": "next",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "next",
+        "payloadType": "str",
+        "x": 1150,
+        "y": 620,
+        "wires": [
+            [
+                "e2eaf3ce43366893"
+            ]
+        ]
+    },
+    {
+        "id": "4704f49d47dd8e68",
+        "type": "debug",
+        "z": "e0fb2a1b4fe214e2",
+        "name": "Dados Recebidos",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1580,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "mqtt_broker_hivemq",
+        "type": "mqtt-broker",
+        "name": "HiveMQ",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "NodeREDMonitorPasses",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": ""
+    },
+    {
+        "id": "b481b188a48757d5",
+        "type": "ui_group",
+        "name": "Monitor ESP32",
+        "tab": "c71c36167be116a8",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "c71c36167be116a8",
+        "type": "ui_tab",
+        "name": "🏟️ Painel de Passes",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "05c39b579739742e",
         "type": "global-config",
         "env": [],
         "modules": {
