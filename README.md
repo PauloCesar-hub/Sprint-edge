@@ -67,11 +67,11 @@ O Dashboard mostra:
 -🔗 [Link da aplicação em teste no wokwi](https://wokwi.com/projects/446725743634396161)
 
 <div align="center">
-  <img src="Captura de Tela 2025-11-05 às 18.07.34" width="600" alt="Arquitetura do Projeto">
+  <img src="Captura de Tela 2025-11-05 às 18.07.34.png" width="600" alt="Arquitetura do Projeto">
 </div>
 
 <div align="center">
-  <img src="Captura de Tela 2025-11-05 às 18.07.41" width="600" alt="Arquitetura do Projeto">
+  <img src="Captura de Tela 2025-11-05 às 18.07.41.png" width="600" alt="Arquitetura do Projeto">
 </div>
 ---
 
